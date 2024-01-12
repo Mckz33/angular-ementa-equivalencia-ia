@@ -1,4 +1,4 @@
 export interface Curso {
-    CursoId: number;
-    CursoNome: string;
+    cursoId: number;
+    cursoNome: string;
 }

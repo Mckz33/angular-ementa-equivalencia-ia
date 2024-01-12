@@ -23,7 +23,7 @@ export class DisciplinaDadosService {
   }
 
   atualizarDisciplinasDados(disciplinaDados: disciplinaDados): Observable<disciplinaDados> {
-    return this.http.put<disciplinaDados>(`${this.apiUrl}/${disciplinaDados.DisciplinaDadosId}`, disciplinaDados);
+    return this.http.put<disciplinaDados>(`${this.apiUrl}/${disciplinaDados.disciplinaDadosId}`, disciplinaDados);
   }
   
   deletarDisciplinasDados(id: number): Observable<disciplinaDados> {

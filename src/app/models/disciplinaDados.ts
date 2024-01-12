@@ -1,5 +1,5 @@
 export interface disciplinaDados {
-    DisciplinaDadosId: number;
+    disciplinaDadosId: number;
     ementa: string;
     conteudo: string | null;
 }

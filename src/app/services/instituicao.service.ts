@@ -24,7 +24,7 @@ export class InstituicaoService {
   }
 
   atualizarInstituicao(instituicao: Instituicao): Observable<Instituicao> {
-    return this.http.put<Instituicao>(`${this.apiUrl}/${instituicao.InstituicaoId}`, instituicao);
+    return this.http.put<Instituicao>(`${this.apiUrl}/${instituicao.instituicaoId}`, instituicao);
   }
 
   deletarInstituicao(id: number): Observable<Instituicao> {

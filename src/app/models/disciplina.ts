@@ -2,8 +2,8 @@ import { Curso } from "./curso";
 import { Instituicao } from "./instituicao";
 
 export interface Disciplina {
-    DisciplinaId: number;
-    DisciplinaNome: string;
+    disciplinaId: number;
+    disciplinaNome: string;
     curso: Curso;
     instituicao: Instituicao;
 }

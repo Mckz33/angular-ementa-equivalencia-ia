@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { disciplinaDados } from '../models/disciplinaDados';
+import { disciplinaDado } from '../models/disciplinaDado';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -10,24 +10,24 @@ export class DisciplinaDadosService {
   private apiUrl = 'http://localhost:8080/api/disciplina-dados';
 
   constructor(private http: HttpClient) { }
-  obterDisciplinasDados(): Observable<disciplinaDados[]> {
-    return this.http.get<disciplinaDados[]>(this.apiUrl);
+  obterDisciplinasDados(): Observable<disciplinaDado[]> {
+    return this.http.get<disciplinaDado[]>(this.apiUrl);
   }
 
-  obterDisciplinasDadosId(id: string): Observable<disciplinaDados> {
-    return this.http.get<disciplinaDados>(this.apiUrl + '/' + id);
+  obterDisciplinasDadosId(id: string): Observable<disciplinaDado> {
+    return this.http.get<disciplinaDado>(this.apiUrl + '/' + id);
   }
 
-  adicionarDisciplinasDados(disciplinaDados: disciplinaDados): Observable<disciplinaDados> {
-    return this.http.post<disciplinaDados>(this.apiUrl, disciplinaDados);
+  adicionarDisciplinasDados(disciplinaDados: disciplinaDado): Observable<disciplinaDado> {
+    return this.http.post<disciplinaDado>(this.apiUrl, disciplinaDados);
   }
 
-  atualizarDisciplinasDados(disciplinaDados: disciplinaDados): Observable<disciplinaDados> {
-    return this.http.put<disciplinaDados>(`${this.apiUrl}/${disciplinaDados.disciplinaDadosId}`, disciplinaDados);
+  atualizarDisciplinasDados(disciplinaDados: disciplinaDado): Observable<disciplinaDado> {
+    return this.http.put<disciplinaDado>(`${this.apiUrl}/${disciplinaDados.disciplinaDadoId}`, disciplinaDados);
   }
   
-  deletarDisciplinasDados(id: number): Observable<disciplinaDados> {
-    return this.http.delete<disciplinaDados>(this.apiUrl + '/' + id);
+  deletarDisciplinasDados(id: number): Observable<disciplinaDado> {
+    return this.http.delete<disciplinaDado>(this.apiUrl + '/' + id);
   }
 
 }

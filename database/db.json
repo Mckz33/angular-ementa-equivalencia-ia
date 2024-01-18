@@ -1,16 +1,90 @@
 {
-    "instituicao": {
-
+  "instituicoes": [
+    {
+      "instituicaoId": 1,
+      "instituicaoNome": "Universidade ABC",
+      "cursos": [
+        {
+          "cursoId": 101,
+          "cursoNome": "Engenharia da Computação",
+          "disciplinas": [
+            {
+              "disciplinaId": 1001,
+              "disciplinaNome": "Introdução à Programação",
+              "disciplinaDadoId": 2001
+            },
+            {
+              "disciplinaId": 1002,
+              "disciplinaNome": "Estruturas de Dados",
+              "disciplinaDadoId": 2002
+            }
+          ]
+        },
+        {
+          "cursoId": 102,
+          "cursoNome": "Ciência de Dados",
+          "disciplinas": [
+            {
+              "disciplinaId": 1003,
+              "disciplinaNome": "Análise Estatística",
+              "disciplinaDadoId": 2003
+            },
+            {
+              "disciplinaId": 1004,
+              "disciplinaNome": "Mineração de Dados",
+              "disciplinaDadoId": 2004
+            }
+          ]
+        }
+      ]
     },
-
-    "curso": {
-
-    },
-
-    "disciplina": {
-    },
-    
-    "disciplinaDado": {
-
+    {
+      "instituicaoId": 2,
+      "instituicaoNome": "Universidade XYZ",
+      "cursos": [
+        {
+          "cursoId": 201,
+          "cursoNome": "Engenharia Elétrica",
+          "disciplinas": [
+            {
+              "disciplinaId": 2001,
+              "disciplinaNome": "Circuitos Elétricos",
+              "disciplinaDadoId": 3001
+            },
+            {
+              "disciplinaId": 2002,
+              "disciplinaNome": "Sistemas de Controle",
+              "disciplinaDadoId": 3002
+            }
+          ]
+        }
+      ]
     }
-  }
+  ],
+  "disciplinaDados": [
+    {
+      "disciplinaDadoId": 2001,
+      "ementa": "Ementa da disciplina de Circuitos Elétricos",
+      "conteudo": "Conteúdo da disciplina de Circuitos Elétricos",
+      "disciplinaId": 2001
+    },
+    {
+      "disciplinaDadoId": 2002,
+      "ementa": "Ementa da disciplina de Sistemas de Controle",
+      "conteudo": "Conteúdo da disciplina de Sistemas de Controle",
+      "disciplinaId": 2002
+    },
+    {
+      "disciplinaDadoId": 3001,
+      "ementa": "Ementa da disciplina de Circuitos Elétricos para Engenharia Elétrica",
+      "conteudo": "Conteúdo da disciplina de Circuitos Elétricos para Engenharia Elétrica",
+      "disciplinaId": 2001
+    },
+    {
+      "disciplinaDadoId": 3002,
+      "ementa": "Ementa da disciplina de Sistemas de Controle para Engenharia Elétrica",
+      "conteudo": "Conteúdo da disciplina de Sistemas de Controle para Engenharia Elétrica",
+      "disciplinaId": 2002
+    }
+  ]
+}

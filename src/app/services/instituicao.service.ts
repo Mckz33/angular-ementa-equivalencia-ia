@@ -1,33 +1,43 @@
+// instituicao.service.ts
+
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Instituicao } from '../models/instituicao';
-import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class InstituicaoService {
-  private apiUrl = 'http://localhost:8080/api/instituicao';
+  private baseUrl = 'http://localhost:3000/instituicoes';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  obterInstituicoes(): Observable<Instituicao[]> {
-    return this.http.get<Instituicao[]>(this.apiUrl);
+  // Obtém todas as instituições.
+  getInstituicoes(): Observable<Instituicao[]> {
+    return this.http.get<Instituicao[]>(this.baseUrl);
   }
 
-  obterInstituicaoId(id: number): Observable<Instituicao> {
-    return this.http.get<Instituicao>(this.apiUrl + '/' + id);
+  // Obtém uma instituição pelo ID.
+  getInstituicaoById(id: number): Observable<Instituicao> {
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.get<Instituicao>(url);
   }
 
-  adicionarInstituicao(instituicao: Instituicao): Observable<Instituicao> {
-    return this.http.post<Instituicao>(this.apiUrl, instituicao);
+  // Adiciona uma nova instituição.
+  addInstituicao(instituicao: Instituicao): Observable<Instituicao> {
+    return this.http.post<Instituicao>(this.baseUrl, instituicao);
   }
 
-  atualizarInstituicao(instituicao: Instituicao): Observable<Instituicao> {
-    return this.http.put<Instituicao>(`${this.apiUrl}/${instituicao.instituicaoId}`, instituicao);
+  // Atualiza uma instituição existente.
+  updateInstituicao(instituicao: Instituicao): Observable<Instituicao> {
+    const url = `${this.baseUrl}/${instituicao.instituicaoId}`;
+    return this.http.put<Instituicao>(url, instituicao);
   }
 
-  deletarInstituicao(id: number): Observable<Instituicao> {
-    return this.http.delete<Instituicao>(this.apiUrl + '/' + id);
+  // Exclui uma instituição pelo ID.
+  deleteInstituicao(id: number): Observable<void> {
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.delete<void>(url);
   }
 }

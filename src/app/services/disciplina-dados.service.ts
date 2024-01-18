@@ -1,33 +1,39 @@
+// disciplina-dado.service.ts
+
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { disciplinaDado } from '../models/disciplinaDado';
-import { HttpClient } from '@angular/common/http';
+
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class DisciplinaDadosService {
-  private apiUrl = 'http://localhost:8080/api/disciplina-dados';
+export class DisciplinaDadoService {
+  private baseUrl = 'http://localhost:3000/disciplinaDados';
 
-  constructor(private http: HttpClient) { }
-  obterDisciplinasDados(): Observable<disciplinaDado[]> {
-    return this.http.get<disciplinaDado[]>(this.apiUrl);
+  constructor(private http: HttpClient) {}
+
+  getDisciplinaDados(): Observable<disciplinaDado[]> {
+    return this.http.get<disciplinaDado[]>(this.baseUrl);
   }
 
-  obterDisciplinasDadosId(id: string): Observable<disciplinaDado> {
-    return this.http.get<disciplinaDado>(this.apiUrl + '/' + id);
+  getDisciplinaDadoById(id: number): Observable<disciplinaDado> {
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.get<disciplinaDado>(url);
   }
 
-  adicionarDisciplinasDados(disciplinaDados: disciplinaDado): Observable<disciplinaDado> {
-    return this.http.post<disciplinaDado>(this.apiUrl, disciplinaDados);
+  addDisciplinaDado(disciplinaDado: disciplinaDado): Observable<disciplinaDado> {
+    return this.http.post<disciplinaDado>(this.baseUrl, disciplinaDado);
   }
 
-  atualizarDisciplinasDados(disciplinaDados: disciplinaDado): Observable<disciplinaDado> {
-    return this.http.put<disciplinaDado>(`${this.apiUrl}/${disciplinaDados.disciplinaDadoId}`, disciplinaDados);
-  }
-  
-  deletarDisciplinasDados(id: number): Observable<disciplinaDado> {
-    return this.http.delete<disciplinaDado>(this.apiUrl + '/' + id);
+  updateDisciplinaDado(disciplinaDado: disciplinaDado): Observable<disciplinaDado> {
+    const url = `${this.baseUrl}/${disciplinaDado.disciplinaDadoId}`;
+    return this.http.put<disciplinaDado>(url, disciplinaDado);
   }
 
+  deleteDisciplinaDado(id: number): Observable<void> {
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.delete<void>(url);
+  }
 }
